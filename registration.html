@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>LAB_2</title>
+		<link id="main_style" rel="stylesheet" type="text/css" href="css/registration_style.css"/>
+	</head>
+	<body>
+
+		<script src="https://snipp.ru/cdn/jquery/2.1.1/jquery.min.js"></script>
+		<script>
+		$('body').on('click', '.password-checkbox', function(){
+			if ($(this).is(':checked')){
+				$('#password-input').attr('type', 'text');
+			} else {
+				$('#password-input').attr('type', 'password');
+			}
+		});
+		$('body').on('click', '.password-checkbox1', function(){
+			if ($(this).is(':checked')){
+				$('#password-input1').attr('type', 'text');
+			} else {
+				$('#password-input1').attr('type', 'password');
+			}
+		}); 
+		</script>
+
+		<p class = "my_title"> Регистрация </p>
+		<p class = "my_text"> для создания учетной записи необходимо заполнить форму </p>
+		<div class = "my_general">
+			<div class= "my_part">
+				<form action="php/registration_server.php" method = "post">
+					<p> Введите имя:<i class="star">*</i> <input type = "text" name = "name" maxlength="30" size="40" /></p>
+					<p> Введите фамилия:<i class="star">*</i> <input type = "text" name = "surname"maxlength="30" size="20" /></p>
+					<p> Введите email:<i class="star">*</i> <br><input type = "email" name = "mail"maxlength="50" size="50"/></p>
+					Пол<i class="star">*</i> <br />
+					<input type="radio" name = "sex" value = "female"> female
+					<input type="radio" name = "sex" value = "male"> male
+					<input type="radio" name = "sex" value = "other"> other
+					<p> Введите возраст:<i class="star">*</i> <input type = "number" min = "5" name = "age"/></p>
+					<p> Введите дату рождения <i class="star">*</i> <br>
+						<input type = "date" id= "date" name = "date_of_birth"/></p>
+					<p> Выберите один из вариантов <i class="star">*</i> <br>
+						<select name="my_select" class="people_position">
+							<option selected> Учусь </option>
+							<option> Работаю </option>
+							<option> Другое </option>
+						</select>
+					</p>  
+					<p> Введите логин <i class="star">*</i> <br><input type = "text" name = "nikname" maxlength="25" size="40"></p>
+
+					<p> Введите пароль <i class="star">*</i> <br><input type="password" id="password-input" name="password" maxlength="20" size = "40" value=""></p>
+					<label><input type="checkbox" class="password-checkbox"> Показать пароль</label>
+
+					<p> Повторите пароль <i class="star">*</i> <br><input type="password" id = "password-input1" name = "confirm_password" maxlength="20" size = "40" value=""></p>
+					<label><input type="checkbox" class="password-checkbox1"> Показать пароль </label> <br /><br />
+					
+					<p> Введите комментарий <br>
+					<textarea placeholder="Comment..." name="comments" > </textarea></p><br />
+					<input type = "submit" class = "my_botton_send" value = "Регистрация ">
+				</form>
+			</div>
+		</div>
+	</body>
+</html>
